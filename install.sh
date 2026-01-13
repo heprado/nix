@@ -1,4 +1,4 @@
-#!usr/bin/env bash
+#!/usr/bin/env bash
 
 set -euo pipefail
 
@@ -20,6 +20,7 @@ fi
 
 # 1. Preparar disco temporário
 sgdisk --zap-all /dev/sda
+parted mklabel gpt
 parted /dev/sda mkpart primary ext4 1MiB 20GiB
 mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
@@ -28,6 +29,10 @@ mount /dev/sda1 /mnt
 export TMPDIR=/mnt/tmp
 mkdir -p $TMPDIR
 
-curl -O https://raw.githubusercontent.com/heprado/nix/refs/heads/main/configuration.nix
+mkdir -p /mnt/etc/nixos
+
+touch /mnt/etc/nixos/configuration.nix
+
+curl -O https://raw.githubusercontent.com/heprado/nix/refs/heads/main/configuration.nix -o /mnt/etc/nixos/configuration.nix
 
 nixos-install --root /mnt 

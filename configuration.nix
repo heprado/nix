@@ -6,20 +6,26 @@ in
 {
   imports = [ 
     "${disko}/module.nix"
-     ];
+  ];
 
+  swapDevices = [ 
+    { 
+      device = "/swapfile";
+      size = 4096;
+    } 
+  ];
 
   fileSystems."/tmp" = {
     fsType = "tmpfs";
       options = [
         "defaults"
-        "size=8G"        # ← define tamanho máximo
+        "size=6G"
         "mode=1777"
       ];
   };
 
   swapDevices = [
-    { device = "/swapfile"; size = 4096; }  # 4 GB
+    { device = "/swapfile"; size = 4096; }
   ];
 
   zramSwap.enable = true;

@@ -19,24 +19,22 @@
 
   # Drivers Intel (Skylake)
   hardware.graphics.enable = true;
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable32Bit = true;
 
   # Firmware adicional
   hardware.enableRedistributableFirmware = true;
 
   # Rede
   networking.networkmanager.enable = true;
-  networking.hostName = "$HOSTNAME";
+  networking.hostName = "dev-machine";
 
   # Localização
-  time.timeZone = "$TIMEZONE";
+  time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "pt_BR.UTF-8";
   console.keyMap = "br-abnt2";
 
   # Usuário
-  users.users.$USERNAME = {
+  users.users.heprado = {
     isNormalUser = true;
     description = "User";
     extraGroups = [ "networkmanager" "wheel" ];

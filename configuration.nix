@@ -9,7 +9,9 @@ in
     "${disko}/module.nix"
      ];
 
-
+  swapDevices = [
+    { device = "/swapfile"; size = 4096; }  # 4 GB
+  ];
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;

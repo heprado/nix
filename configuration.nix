@@ -8,15 +8,12 @@ in
     "${disko}/module.nix"
   ];
 
-  # Para não usar o /tmp padrão do nix que é montado na RAM.
-  boot.tmp.useTmpfs = false;
-
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
 
   # Configuração do disko
   disko.devices.disk.main = {
-    device = "/dev/sda";  # ← ajuste se for NVMe (/dev/nvme0n1)
+    device = "${NIX_DISK}";  # ← ajuste se for NVMe (/dev/nvme0n1)
     type = "disk";
     content = {
       type = "gpt";
@@ -86,16 +83,16 @@ in
 
   # Rede
   networking.networkmanager.enable = true;
-  networking.hostName = "dev-machine";
+  networking.hostName = "${NIX_HOSTNAME}";
 
   # Localização
-  time.timeZone = "America/Sao_Paulo";
-  i18n.defaultLocale = "pt_BR.UTF-8";
-  console.keyMap = "br-abnt2";
+  time.timeZone = "${NIX_TIMEZONE}";
+  i18n.defaultLocale = "${NIX_LOCALE}";
+  console.keyMap = "${NIX_KEYMAP}";
 
   # Usuário
   # rofi waybar swaybg wl-clipboard grim slurp pavucontrol
-  users.users.heprado = {
+  users.users.${NIX_USERNAME} = {
     isNormalUser = true;
     description = "User";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -112,7 +109,7 @@ in
 
   # Segurança e manutenção
   nix.gc.automatic = true;
-  
+
   nix.gc.options = "--delete-older-than 7d";
 
   system.stateVersion = "24.11";

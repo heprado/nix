@@ -15,7 +15,7 @@ if [[ ! -d /sys/firmware/efi ]]; then
 
 fi
 
-echo "Particionando disco temporário para instalação"
+echo "Criando partição temporaria de instalação"
 # 1. Preparar disco temporário
 sgdisk --zap-all /dev/sda
 parted /dev/sda mklabel gpt 
@@ -35,4 +35,4 @@ echo "Particionando realmente"
 nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
 
 echo "Instalando"
-nixos-install --root /mnt 
+nixos-install --root /mnt

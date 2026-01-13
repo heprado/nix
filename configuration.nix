@@ -110,12 +110,9 @@ in
     vim git curl wget htop xdg-utils lvm2
   ];
 
-
-
   # Segurança e manutenção
   nix.gc.automatic = true;
-
-
+  
   nix.gc.options = "--delete-older-than 7d";
 
   system.stateVersion = "24.11";

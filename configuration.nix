@@ -52,13 +52,12 @@ in
           type = "filesystem";
           format = "ext4";
           mountpoint = "/";
-          options = [ "noatime" ];  # discard só se for SSD!
         };
       };
     };
   };
 
-  
+
   # Bootloader UEFI
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

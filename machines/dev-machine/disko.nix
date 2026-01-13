@@ -1,11 +1,4 @@
-{ config, pkgs, ... }:
-
-let
-  disko = builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz";
-in
 {
-  imports = [ "${disko}/module.nix" ];
-
   disko.devices = {
     disk = {
       main = {  # nome arbitrário: "main", "my-disk", etc.
@@ -59,12 +52,4 @@ in
       };
     };
   };
-
-  # Restante da configuração (bootloader, hyprland, etc.)
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  services.lvm.enable = true;
-  boot.supportedFilesystems = [ "ext4" ];
-
-  # ... (resto do teu configuration.nix)
 }

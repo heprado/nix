@@ -9,7 +9,7 @@ in
   ];
 
   # Para não usar o /tmp padrão do nix que é montado na RAM.
-  boot.tmpOnTmpfs = false;
+  boot.tmp.useTmpfs = false;
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;

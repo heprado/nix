@@ -8,6 +8,16 @@ in
     "${disko}/module.nix"
      ];
 
+
+  fileSystems."/tmp" = {
+  fsType = "tmpfs";
+    options = [
+      "defaults"
+      "size=8G"        # ← define tamanho máximo
+      "mode=1777"
+    ];
+  };
+
   swapDevices = [
     { device = "/swapfile"; size = 4096; }  # 4 GB
   ];

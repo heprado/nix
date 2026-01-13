@@ -47,7 +47,7 @@ mount "${DISK}1" /mnt/boot
 echo "Gerando hardware-configuration.nix..."
 nixos-generate-config --root /mnt
 
-mv "./configuration.nix" "/mnt/etc/nix/configuration.nix"
+mv "configuration.nix" "/mnt/etc/nix/ -f"
 
 nixos-install --no-root-passwd
 

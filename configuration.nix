@@ -13,7 +13,7 @@ in
 
   # Configuração do disko
   disko.devices.disk.main = {
-    device = "${NIX_DISK}";  # ← ajuste se for NVMe (/dev/nvme0n1)
+    device = "/dev/sda";  # ← ajuste se for NVMe (/dev/nvme0n1)
     type = "disk";
     content = {
       type = "gpt";
@@ -83,16 +83,16 @@ in
 
   # Rede
   networking.networkmanager.enable = true;
-  networking.hostName = "${NIX_HOSTNAME}";
+  networking.hostName = "dev-machine";
 
   # Localização
-  time.timeZone = "${NIX_TIMEZONE}";
-  i18n.defaultLocale = "${NIX_LOCALE}";
-  console.keyMap = "${NIX_KEYMAP}";
+  time.timeZone = "America/Sao_Paulo";
+  i18n.defaultLocale = "pt_BR.UTF-8";
+  console.keyMap = "br-abnt2";
 
   # Usuário
   # rofi waybar swaybg wl-clipboard grim slurp pavucontrol
-  users.users.${NIX_USERNAME} = {
+  users.users.heprado = {
     isNormalUser = true;
     description = "User";
     extraGroups = [ "networkmanager" "wheel" ];

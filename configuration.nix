@@ -9,6 +9,11 @@ in
     "${disko}/module.nix"
      ];
 
+
+
+  zramSwap.enable = true;
+  zramSwap.memoryPercent = 100;
+
   # Configuração do disko
   disko.devices.disk.main = {
     device = "/dev/sda";  # ← ajuste se for NVMe (/dev/nvme0n1)
@@ -105,8 +110,7 @@ in
     vim git curl wget htop xdg-utils lvm2
   ];
 
-  # ZRAM para melhor uso de RAM (ótimo com 8 GB)
-  zramSwap.enable = true;
+
 
   # Segurança e manutenção
   nix.gc.automatic = true;

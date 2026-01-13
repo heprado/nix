@@ -15,6 +15,7 @@ if [[ ! -d /sys/firmware/efi ]]; then
 
 fi
 
+echo "Particionando disco temporário para instalação"
 # 1. Preparar disco temporário
 sgdisk --zap-all /dev/sda
 parted /dev/sda mklabel gpt 
@@ -22,12 +23,16 @@ parted /dev/sda mkpart primary ext4 1MiB 20GiB
 mkfs.ext4 /dev/sda1 
 mount /dev/sda1 /mnt 
 
+echo "Criando arquivos necessarios"
 # 2. Configurar ambiente
 export TMPDIR=/mnt/tmp
+
 mkdir -p $TMPDIR
 
 mkdir -p /mnt/etc/nixos
 
+echo "Particionando realmente"
 nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
 
+echo "Instalando"
 nixos-install --root /mnt 

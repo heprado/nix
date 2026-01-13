@@ -6,12 +6,12 @@ set -euo pipefail
 #USE_SWAP=1;
 
 
-# === CONFIGURAÇÃO PERSONALIZÁVEL ===
-DISK="/dev/sda"        # Ajuste se usar NVMe (/dev/nvme0n1) ou outro
-HOSTNAME="nixos-hypr"
-USERNAME="seuusuario"  # ← ALTERE ISSO!
+# === PADROES ===
+DISK="/dev/sda"       
+HOSTNAME="dev-machine"
+USERNAME="heprado" 
 TIMEZONE="America/Sao_Paulo"
-SWAP_SIZE="2G"         # Pode ser "8G" se quiser hibernar
+SWAP_SIZE="2G"         
 # ==================================
 
 if [[ ! -d /sys/firmware/efi ]]; then

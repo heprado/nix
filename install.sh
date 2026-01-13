@@ -2,12 +2,7 @@
 
 set -euo pipefail
 
-# export NIX_DISK="/dev/sda"
-# export NIX_HOSTNAME="dev-machine"
-# export NIX_USERNAME="heprado"
-# export NIX_TIMEZONE="America/Sao_Paulo"
-# export NIX_LOCALE="pt_BR.UTF-8"
-# export NIX_KEYMAP="br-abnt2"
+MACHINE="dev-machine";
 
 export NIX_CONFIG="experimental-features = nix-command flakes"
 
@@ -33,10 +28,6 @@ mkdir -p $TMPDIR
 
 mkdir -p /mnt/etc/nixos
 
-touch /mnt/etc/nixos/configuration.nix
-
-curl -o /mnt/etc/nixos/configuration.nix https://raw.githubusercontent.com/heprado/nix/refs/heads/main/configuration.nix
-
-nix run github:nix-community/disko -- --mode disko /etc/nixos/configuration.nix
+nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
 
 nixos-install --root /mnt 

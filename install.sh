@@ -9,6 +9,8 @@ set -euo pipefail
 # export NIX_LOCALE="pt_BR.UTF-8"
 # export NIX_KEYMAP="br-abnt2"
 
+export NIX_CONFIG="experimental-features = nix-command flakes"
+
 if [[ ! -d /sys/firmware/efi ]]; then
 
 
@@ -33,6 +35,8 @@ mkdir -p /mnt/etc/nixos
 
 touch /mnt/etc/nixos/configuration.nix
 
-curl -o /mnt/etc/nixos/configuration.nix https://raw.githubusercontent.com/heprado/nix/refs/heads/main/configuration.nix x
+curl -o /mnt/etc/nixos/configuration.nix https://raw.githubusercontent.com/heprado/nix/refs/heads/main/configuration.nix
+
+nix run github:nix-community/disko -- --mode disko /etc/nixos/configuration.nix
 
 nixos-install --root /mnt 

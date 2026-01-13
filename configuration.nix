@@ -8,9 +8,6 @@ in
     "${disko}/module.nix"
   ];
 
-  zramSwap.enable = true;
-  zramSwap.memoryPercent = 100;
-
   # Configuração do disko
   disko.devices.disk.main = {
     device = "/dev/sda";  # ← ajuste se for NVMe (/dev/nvme0n1)
@@ -59,6 +56,8 @@ in
     };
   };
 
+  zramSwap.enable = true;
+  zramSwap.memoryPercent = 100;
 
   # Bootloader UEFI
   boot.loader.systemd-boot.enable = true;

@@ -10,12 +10,12 @@ in
 
 
   fileSystems."/tmp" = {
-  fsType = "tmpfs";
-    options = [
-      "defaults"
-      "size=8G"        # ← define tamanho máximo
-      "mode=1777"
-    ];
+    fsType = "tmpfs";
+      options = [
+        "defaults"
+        "size=8G"        # ← define tamanho máximo
+        "mode=1777"
+      ];
   };
 
   swapDevices = [

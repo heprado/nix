@@ -8,21 +8,8 @@ in
     "${disko}/module.nix"
   ];
 
-  swapDevices = [ 
-    { 
-      device = "/swapfile";
-      size = 4096;
-    } 
-  ];
-
-  fileSystems."/tmp" = {
-    fsType = "tmpfs";
-      options = [
-        "defaults"
-        "size=6G"
-        "mode=1777"
-      ];
-  };
+  # Para não usar o /tmp padrão do nix que é montado na RAM.
+  boot.tmpOnTmpfs = false;
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;

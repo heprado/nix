@@ -32,7 +32,7 @@ mkdir -p $TMPDIR
 mkdir -p /mnt/etc/nixos
 
 echo "Particionando realmente"
-nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
+nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/configuration.nix
 
 echo "Instalando"
 nixos-install --root /mnt

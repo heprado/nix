@@ -1,13 +1,14 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   inputs.disko.url = "github:nix-community/disko/latest";
   inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, disko, nixpkgs }: {
-    nixosConfigurations.devmachine = nixpkgs.legacyPackages.x86_64-linux.nixos [
-      ./configuration.nix
-      disko.nixosModules.disko
-      {
+  outputs = { self, nixpkgs, disko }: {
+    nixosConfigurations.dev-machine = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./configuration.nix
+        disko.nixosModules.disko
+            {
         disko.devices = {
           disk = {
             main = { 
@@ -62,14 +63,7 @@
           };
         };
       }
-    ];
+      ];
+    };
   };
-}
-
-
-
-
-
-{
-  
 }

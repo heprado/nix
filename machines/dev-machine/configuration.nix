@@ -6,6 +6,8 @@
     ./disko.nix
   ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
 

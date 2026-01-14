@@ -33,7 +33,7 @@ mkdir -p /mnt/etc/nixos
 
 echo "Particionando realmente"
 
-sudo nix run --extra-experimental-features "nix-command flakes" 'github:nix-community/disko/latest#disko' -- --mode "./machines/dev-machine/disko.nix" --disk main /dev/sda
+nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
 
 echo "Instalando"
 nixos-install --root /mnt

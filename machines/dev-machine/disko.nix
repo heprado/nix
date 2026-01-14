@@ -1,3 +1,4 @@
+{
 disko.devices = {
     device = "/dev/sda";  # ← ajuste se for NVMe (/dev/nvme0n1)
     type = "disk";
@@ -44,3 +45,4 @@ disko.devices = {
       };
     };
 };
+}

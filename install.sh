@@ -31,7 +31,7 @@ export TMPDIR="/mnt/tmp"
 
 mkdir -p /mnt/etc/nixos
 
-mkdir -p $TMPDIR
+mkdir -p "/mnt/tmp"
 
 echo "Particionando realmente"
 

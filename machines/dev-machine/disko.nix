@@ -1,18 +1,13 @@
 {
-  inputs.disko.url = "github:nix-community/disko/latest";
-  inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
+  imports = [ "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix" ];
+  
 
-  outputs = { self, nixpkgs, disko }: {
-    nixosConfigurations.dev-machine = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-        disko.nixosModules.disko
-            {
-        disko.devices = {
-          disk = {
-            main = { 
-              device = "/dev/sda";
+
+  disko.devices = 
+  {
+    disk = {
+      main = { 
+        device = "/dev/sda";
               type = "disk";
               content = {
                 type = "gpt";
@@ -61,9 +56,9 @@
               };
             };
           };
-        };
-      }
-      ];
-    };
   };
+
+
 }
+
+        

@@ -1,7 +1,8 @@
+{ config, pkgs, ... }:
 {
   disko.devices = {
     disk = {
-      main = {  # nome arbitrário: "main", "my-disk", etc.
+      main = { 
         device = "/dev/sda";
         type = "disk";
         content = {

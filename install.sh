@@ -39,5 +39,7 @@ echo "Particionando realmente"
 
 #nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
 
+disko --mode disko ./machines/$MACHINE/disko.nix
+
 echo "Instalando"
 nixos-install -f ./machines/$MACHINE/configuration.nix

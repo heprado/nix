@@ -24,18 +24,20 @@ mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt 
 
 echo "Criando arquivos necessarios"
-# 2. Configurar ambiente
-export TMPDIR= "/mnt/tmp"
 
-mkdir -p $TMPDIR
+# 2. Configurar ambiente
+
+export TMPDIR= /mnt/tmp
 
 mkdir -p /mnt/etc/nixos
 
 mkdir -p $TMPDIR
 
+nix shell nixpkgs#disko
+
 echo "Particionando realmente"
 
-nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
+#nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
 
 echo "Instalando"
 nixos-install -f ./machines/$MACHINE/configuration.nix

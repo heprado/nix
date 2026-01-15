@@ -31,7 +31,7 @@ mv ./machines/$MACHINE/configuration.nix /mnt/etc/nixos/
 
 echo "Instalando"
 
-nixos-install -f ./machines/$MACHINE/configuration.nix
+nixos-install --root /mnt
 
 #echo "Criando partição temporaria de instalação"
 # 1. Preparar disco temporário

@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 {
-  
-  imports = [
-    ./hardware-configuration.nix 
-  ];
 
-  disko.enable = true;
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;

@@ -15,7 +15,10 @@ if [[ ! -d /sys/firmware/efi ]]; then
 
 fi
 
+mount -t tmpfs -o size=8G tmpfs /tmp
+
 echo "Particionando realmente"
+
 
 nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
 

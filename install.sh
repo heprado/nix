@@ -2,53 +2,28 @@
 
 set -euo pipefail
 
-MACHINE="dev-machine";
+MACHINE="dev-machine"
 
-export NIX_CONFIG="experimental-features = nix-command flakes"
-
+# Verifica modo UEFI
 if [[ ! -d /sys/firmware/efi ]]; then
-
-
-  echo "Erro: Sistema não está em modo UEFI. Hyprland + LVM requer UEFI."
-
+  echo "Erro: Sistema não está em modo UEFI. Hyprland + LVM requer UEFI." >&2
   exit 1
-
 fi
 
-mount -t tmpfs -o size=8G tmpfs /tmp
+echo "Montando tmpfs em /tmp para builds temporários..."
+mount -t tmpfs -o size=4G tmpfs /tmp  # ajuste o tamanho se quiser
 
-echo "Particionando realmente"
+echo "Particionando com disko..."
+nix shell nixpkgs#disko -c disko --mode disko "./machines/$MACHINE/disko.nix"
 
-
-nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
-
+echo "Gerando configuração do hardware..."
 nixos-generate-config --root /mnt
 
-export TMPDIR="/mnt"
+echo "Instalando NixOS..."
+# Escolha UMA das opções abaixo:
 
-echo "Instalando"
+# Opção 1: se usar flakes (recomendado)
+#nixos-install --flake "./machines/$MACHINE#$(hostname)" --no-root-passwd
 
-nixos-install -f ./machines/$MACHINE/configuration.nix
-
-#echo "Criando partição temporaria de instalação"
-# 1. Preparar disco temporário
-# sgdisk --zap-all /dev/sda
-# parted /dev/sda mklabel gpt 
-# parted /dev/sda mkpart primary ext4 1MiB 20GiB 
-# mkfs.ext4 /dev/sda1 
-# mount /dev/sda1 /mnt 
-
-#echo "Criando arquivos necessarios"
-
-# 2. Configurar ambiente
-
-
-
-# mkdir -p /mnt/etc/nixos
-
-# mkdir -p /mnt/tmp
-
-
-
-
-
+# Opção 2: se usar configuração tradicional (sem flakes)
+ nixos-install -f "./machines/$MACHINE/configuration.nix"

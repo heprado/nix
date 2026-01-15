@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       main = { 
-        device = "/dev/sda";
+        #device = "/dev/sda";
         type = "disk";
         content = {
           type = "gpt";
@@ -15,6 +15,7 @@
                 format = "vfat";
                 mountpoint = "/boot";
                 mountOptions = [ "umask=0077" ];
+                device = "/dev/sda";
               };
             };
             TMP = {
@@ -23,6 +24,8 @@
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/mnt/tmp";
+                mountOptions = [ "umask=0077" ];
+                device = "/dev/sda";
               };
             };
             lvm = {

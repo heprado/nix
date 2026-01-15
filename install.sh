@@ -15,7 +15,19 @@ if [[ ! -d /sys/firmware/efi ]]; then
 
 fi
 
-echo "Criando partição temporaria de instalação"
+echo "Particionando realmente"
+
+nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
+
+nixos-generate-config --root /mnt
+
+export TMPDIR="/mnt"
+
+echo "Instalando"
+
+nixos-install -f ./machines/$MACHINE/configuration.nix
+
+#echo "Criando partição temporaria de instalação"
 # 1. Preparar disco temporário
 # sgdisk --zap-all /dev/sda
 # parted /dev/sda mklabel gpt 
@@ -23,20 +35,17 @@ echo "Criando partição temporaria de instalação"
 # mkfs.ext4 /dev/sda1 
 # mount /dev/sda1 /mnt 
 
-echo "Criando arquivos necessarios"
+#echo "Criando arquivos necessarios"
 
 # 2. Configurar ambiente
 
-export TMPDIR="/mnt"
+
 
 # mkdir -p /mnt/etc/nixos
 
 # mkdir -p /mnt/tmp
 
-echo "Particionando realmente"
 
-nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
 
-echo "Instalando"
 
-nixos-install -f ./machines/$MACHINE/configuration.nix
+

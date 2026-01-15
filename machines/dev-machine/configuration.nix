@@ -1,10 +1,8 @@
-{ config, pkgs, disko, ... }:
+{ config, pkgs, ... }:
 {
   
   imports = [
     ./hardware-configuration.nix 
-    disko.nixosModules.disko
-    ./disko.nix
   ];
 
   disko.enable = true;

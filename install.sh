@@ -22,6 +22,8 @@ echo "Particionando realmente"
 
 nix shell nixpkgs#disko -c disko --mode disko "./machines/$MACHINE/disko.nix"
 
+
+
 nixos-generate-config --root /mnt 
 
 echo "Aplicando configs"

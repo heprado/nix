@@ -27,7 +27,7 @@ echo "Criando arquivos necessarios"
 
 # 2. Configurar ambiente
 
-export TMPDIR="/mnt/tmp"
+export TMPDIR="/mnt"
 
 # mkdir -p /mnt/etc/nixos
 

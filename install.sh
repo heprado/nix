@@ -29,9 +29,9 @@ echo "Criando arquivos necessarios"
 
 export TMPDIR="/mnt/tmp"
 
-mkdir -p /mnt/etc/nixos
+# mkdir -p /mnt/etc/nixos
 
-mkdir -p /mnt/tmp
+# mkdir -p /mnt/tmp
 
 echo "Particionando realmente"
 

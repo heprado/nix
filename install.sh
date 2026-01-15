@@ -17,11 +17,11 @@ fi
 
 echo "Criando partição temporaria de instalação"
 # 1. Preparar disco temporário
-sgdisk --zap-all /dev/sda
-parted /dev/sda mklabel gpt 
-parted /dev/sda mkpart primary ext4 1MiB 20GiB 
-mkfs.ext4 /dev/sda1 
-mount /dev/sda1 /mnt 
+# sgdisk --zap-all /dev/sda
+# parted /dev/sda mklabel gpt 
+# parted /dev/sda mkpart primary ext4 1MiB 20GiB 
+# mkfs.ext4 /dev/sda1 
+# mount /dev/sda1 /mnt 
 
 echo "Criando arquivos necessarios"
 

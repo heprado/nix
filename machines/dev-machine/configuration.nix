@@ -2,6 +2,7 @@
 {
   
   imports = [
+    ./hardware-configuration.nix 
     disko.nixosModules.disko
     ./disko.nix
   ];

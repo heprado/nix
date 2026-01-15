@@ -4,9 +4,7 @@ set -euo pipefail
 
 MACHINE="dev-machine";
 
-cp ./machines/$MACHINE/* /mnt/etc/nixos/
 
-cp ./flake.nix /mnt/etc/nixos/
 
 export NIX_CONFIG="experimental-features = nix-command flakes"
 
@@ -29,7 +27,9 @@ nix shell nixpkgs#disko -c disko --mode disko "./machines/$MACHINE/disko.nix"
 
 nixos-generate-config --no-filesystems --root /mnt 
 
+cp ./machines/$MACHINE/* /mnt/etc/nixos/
 
+cp ./flake.nix /mnt/etc/nixos/
 
 echo "Aplicando configs"
 

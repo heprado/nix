@@ -26,12 +26,14 @@ nixos-generate-config --no-filesystems --root /mnt
 
 cp ./machines/$MACHINE/* /mnt/etc/nixos/
 
+cp ./flake.nix /mnt/etc/nixos/
+
 echo "Aplicando configs"
 
 echo "Instalando"
 
 
-nixos-install --flake ".#$MACHINE" --no-root-passwd
+nixos-install --flake "/mnt/etc/nixos#dev-machine" --no-root-passwd
 
 
 

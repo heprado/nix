@@ -14,20 +14,10 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
-                device = "/dev/sda";
+                device = "/dev/sda1"
               };
             };
-            nix = {
-              size="10G";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/nix";
-                mountOptions = [ "umask=0077" ];
-                device = "/dev/sda";
-              };
-            };
+            
             lvm = {
               size = "100%";  # ocupa o resto do disco
               content = {
@@ -51,6 +41,14 @@
               randomEncryption = false;
             };
           };
+          lv-nix = {
+              size="10G";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/nix";
+              };
+            };
           lv-root = {
             size = "100%FREE";
             content = {

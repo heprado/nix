@@ -14,7 +14,7 @@ echo "Montando tmpfs em /tmp para builds temporários..."
 mount -t tmpfs -o size=4G tmpfs /tmp  # ajuste o tamanho se quiser
 
 echo "Particionando com disko..."
-nix shell nixpkgs#disko -c disko --mode disko "./machines/$MACHINE/disko.nix"
+nix shell --extra-experimental-features nix-command nixpkgs#disko -c disko --mode disko "./machines/$MACHINE/disko.nix"
 
 echo "Gerando configuração do hardware..."
 nixos-generate-config --root /mnt

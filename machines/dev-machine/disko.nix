@@ -18,12 +18,12 @@
                 device = "/dev/sda";
               };
             };
-            TMP = {
+            nix = {
               size="10G";
               content = {
                 type = "filesystem";
                 format = "ext4";
-                mountpoint = "/mnt/tmp";
+                mountpoint = "/nix";
                 mountOptions = [ "umask=0077" ];
                 device = "/dev/sda";
               };

@@ -26,6 +26,8 @@ nix shell nixpkgs#disko -c disko --mode disko "./machines/$MACHINE/disko.nix"
 
 nixos-generate-config --root /mnt
 
+mv ./machines/$MACHINE/configuration.nix /mnt/etc/nixos/
+
 echo "Instalando"
 
 nixos-install -f ./machines/$MACHINE/configuration.nix

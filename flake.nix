@@ -12,7 +12,7 @@
     {
       nixosConfigurations.dev-machine = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit disko; };  # ← makes 'disko' available in modules
-        system = "x86_64-linux"
+        system = "x86_64-linux";
         modules = [
           ./machines/dev-machine/configuration.nix
         ];

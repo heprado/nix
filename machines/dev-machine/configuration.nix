@@ -1,12 +1,10 @@
-{ config, pkgs, disko, ... }:
+{ config, pkgs, ... }:
 {
   
   imports = [
-    disko.nixosModules.disko
     ./disko.nix
   ];
   
-  disko.enable = true;
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
 

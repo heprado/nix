@@ -2,7 +2,7 @@
 {
   
   imports = [
-    disko.nixosModule.disko
+    disko.nixosModules.disko
     ./disko.nix
   ];
   

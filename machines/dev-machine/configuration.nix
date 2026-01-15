@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
+let
+  disko = builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz";
+in
 {
   
-  imports = [ 
+  imports = [
+    "${disko}/nixos-module.nix" 
     ./disko.nix
   ];
   

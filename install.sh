@@ -26,8 +26,6 @@ nixos-generate-config --root /mnt
 
 echo "Aplicando configs"
 
-cp ./machines/$MACHINE/* /mnt/etc/nixos/
-
 echo "Instalando"
 
 nixos-install --flake ".#$MACHINE" --no-root-passwd

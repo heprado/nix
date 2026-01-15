@@ -24,7 +24,7 @@
                 format = "ext4";
                 mountpoint = "/mnt/tmp";
               }
-            }
+            };
             lvm = {
               size = "100%";  # ocupa o resto do disco
               content = {

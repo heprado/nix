@@ -4,6 +4,10 @@ set -euo pipefail
 
 MACHINE="dev-machine";
 
+cp ./machines/$MACHINE/* /mnt/etc/nixos/
+
+cp ./flake.nix /mnt/etc/nixos/
+
 export NIX_CONFIG="experimental-features = nix-command flakes"
 
 if [[ ! -d /sys/firmware/efi ]]; then
@@ -14,19 +18,18 @@ if [[ ! -d /sys/firmware/efi ]]; then
   exit 1
 
 fi
+
 echo "Montando tmpfs em /tmp para builds temporários..."
+
 mount -t tmpfs -o size=8G tmpfs /tmp  
 
 echo "Particionando realmente"
-
 
 nix shell nixpkgs#disko -c disko --mode disko "./machines/$MACHINE/disko.nix"
 
 nixos-generate-config --no-filesystems --root /mnt 
 
-cp ./machines/$MACHINE/* /mnt/etc/nixos/
 
-cp ./flake.nix /mnt/etc/nixos/
 
 echo "Aplicando configs"
 

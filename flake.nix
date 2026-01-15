@@ -9,12 +9,10 @@
   };
 
   outputs = { self, nixpkgs, disko }:
-    let
-      system = "x86_64-linux";  # adjust if using aarch64, etc.
-    in
     {
       nixosConfigurations.dev-machine = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit disko; };  # ← makes 'disko' available in modules
+        system = "x86_64-linux"
         modules = [
           ./machines/dev-machine/configuration.nix
         ];

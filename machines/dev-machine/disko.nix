@@ -14,7 +14,6 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                device = "/dev/sda1"
               };
             };
             

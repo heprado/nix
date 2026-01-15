@@ -1,11 +1,8 @@
-{ config, pkgs, ... }:
-let
-  disko = builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz";
-in
+{ config, pkgs, disko, ... }:
 {
   
   imports = [
-    "${disko}/nixos-module.nix" 
+    disko.nixosModule.disko
     ./disko.nix
   ];
   
@@ -14,6 +11,7 @@ in
   zramSwap.memoryPercent = 100;
 
   # Bootloader UEFI
+  boot.initrd.systemd.enable = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

@@ -19,8 +19,6 @@ mount -t tmpfs -o size=8G tmpfs /tmp
 
 echo "Particionando realmente"
 
-#nix run github:nix-community/disko -- --mode disko ./machines/$MACHINE/disko.nix
-
 
 nix shell nixpkgs#disko -c disko --mode disko "./machines/$MACHINE/disko.nix"
 
@@ -31,25 +29,7 @@ cp ./machines/$MACHINE/* /mnt/etc/nixos/
 
 echo "Instalando"
 
-nixos-install --root /mnt
-
-#echo "Criando partição temporaria de instalação"
-# 1. Preparar disco temporário
-# sgdisk --zap-all /dev/sda
-# parted /dev/sda mklabel gpt 
-# parted /dev/sda mkpart primary ext4 1MiB 20GiB 
-# mkfs.ext4 /dev/sda1 
-# mount /dev/sda1 /mnt 
-
-#echo "Criando arquivos necessarios"
-
-# 2. Configurar ambiente
-
-
-
-# mkdir -p /mnt/etc/nixos
-
-# mkdir -p /mnt/tmp
+nixos-install --flake ".#$MACHINE" --no-root-passwd
 
 
 

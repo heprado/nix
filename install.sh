@@ -29,7 +29,7 @@ echo "Aplicando configs"
 echo "Instalando"
 
 cp /mnt/etc/nixos/hardware-configuration.nix ./machines/$MACHINE/
-#cp /mnt/etc/nixos/configuration.nix ./machines/$MACHINE/
+cp ./machines/$MACHINE/configuration.nix /mnt/etc/nixos/configuration.nix
 nixos-install --flake ".#$MACHINE" --no-root-passwd
 
 

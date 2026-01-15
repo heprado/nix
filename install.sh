@@ -22,14 +22,15 @@ echo "Particionando realmente"
 
 nix shell nixpkgs#disko -c disko --mode disko "./machines/$MACHINE/disko.nix"
 
-nixos-generate-config --root /mnt 
+nixos-generate-config --no-filesystems --root /mnt 
+
+cp ./machines/$MACHINE/* /mnt/etc/nixos/
 
 echo "Aplicando configs"
 
 echo "Instalando"
 
-cp /mnt/etc/nixos/hardware-configuration.nix ./machines/$MACHINE/
-cp ./machines/$MACHINE/configuration.nix /mnt/etc/nixos/configuration.nix
+
 nixos-install --flake ".#$MACHINE" --no-root-passwd
 
 

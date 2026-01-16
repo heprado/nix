@@ -39,7 +39,7 @@
 # nixos-install --flake "/mnt/etc/nixos#dev-machine" --no-root-passwd
 
 
-FLAKE="github:heprado/nix/flake/dir=machines/dev-machine#dev-machine"
+FLAKE="github:heprado/nix/flake?dir=machines/dev-machine#dev-machine"
 DISK_DEVICE=/dev/sda
 
 sudo nix \

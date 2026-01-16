@@ -15,7 +15,6 @@
     {
       nixosConfigurations.dev-machine = nixpkgs.lib.nixosSystem {
         inherit system;
-        system = "x86_64-linux";
         modules = [
           ./disko.nix
           disko.nixosModules.disko

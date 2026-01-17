@@ -10,7 +10,7 @@
   outputs = { self, nixpkgs, disko, ... }:
     let 
       system = "x86_64_linux";
-      hostname = "devmachine";
+      hostname = "dev-machine";
     in
     {
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {

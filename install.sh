@@ -40,6 +40,7 @@
 
 
 FLAKE="github:heprado/nix?dir=machines/dev-machine#dev-machine"
+
 DISK_DEVICE=/dev/sda
 
 sudo nix \

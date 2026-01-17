@@ -9,7 +9,7 @@
 
   outputs = { self, nixpkgs, disko, ... }:
     let 
-      system = "x86_64_linux";
+      system = "x86_64-linux";
       hostname = "dev-machine";
     in
     {

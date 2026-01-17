@@ -7,6 +7,7 @@
   boot.initrd.systemd.enable = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.availableKernelModules = [ "dm_mod" "xfs" "ext4" ]; 
 
   # LVM
   services.lvm.enable = true;

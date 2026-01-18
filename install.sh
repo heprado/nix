@@ -53,7 +53,7 @@ experimental-features = nix-command flakes
 build-use-substitutes = true
 "
 
-nix \ 
+nix \
     run github:nix-community/disko/latest -- --mode destroy,format,mount ./disko.nix
 
 echo "Copiando store e var para disko" $DISK_DEVICE

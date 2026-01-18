@@ -1,5 +1,10 @@
 { config, lib, pkgs, ... }:
 {
+
+  imports = [
+    ./disko.nix  
+  ];
+
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
 

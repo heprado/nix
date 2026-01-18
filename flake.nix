@@ -16,7 +16,6 @@
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./disko.nix
           ./configuration.nix
           disko.nixosModules.disko
         ];

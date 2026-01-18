@@ -45,6 +45,8 @@ FLAKE="./#dev-machine"
 
 DISK_DEVICE=/dev/sda
 
+mount -t tmpfs -o size=8G tmpfs /tmp 
+
 sudo nix \
     --extra-experimental-features 'flakes nix-command' \
     run github:nix-community/disko#disko-install -- \

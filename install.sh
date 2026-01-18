@@ -8,14 +8,7 @@
 
 # export NIX_CONFIG="experimental-features = nix-command flakes"
 
-# if [[ ! -d /sys/firmware/efi ]]; then
 
-
-#   echo "Erro: Sistema não está em modo UEFI. Hyprland + LVM requer UEFI."
-
-#   exit 1
-
-# fi
 
 # echo "Montando tmpfs em /tmp para builds temporários..."
 
@@ -40,6 +33,16 @@
 
 
 #FLAKE="github:heprado/nix?dir=machines/dev-machine#dev-machine"
+
+if [[ ! -d /sys/firmware/efi ]]; then
+
+
+   echo "Erro: Sistema não está em modo UEFI. Hyprland + LVM requer UEFI."
+
+  exit 1
+
+fi
+
 
 FLAKE="./#dev-machine"
 

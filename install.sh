@@ -46,7 +46,8 @@ FLAKE="./#dev-machine"
 DISK_DEVICE=/dev/sda
 
 export NIX_CONFIG="
-experimental-features = nix command flakes build-use-substitutes = true
+experimental-features = nix-command flakes 
+build-use-substitutes = true
 "
 
 sudo nix \

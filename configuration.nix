@@ -70,7 +70,7 @@
   nix = {
     gc = {
       automatic = true;
-      options = "--delete-older-than 7d"
+      options = ["--delete-older-than 7d"];
     };
     settings = {
       experimental-features = ["nix-command" "flakes"];

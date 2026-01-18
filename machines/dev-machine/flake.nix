@@ -10,10 +10,9 @@
   outputs = { self, nixpkgs, disko, ... }:
     let 
       system = "x86_64-linux";
-      hostname = "dev-machine";
     in
     {
-      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.dev-machine = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./disko.nix

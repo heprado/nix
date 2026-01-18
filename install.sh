@@ -54,7 +54,7 @@ build-use-substitutes = true
 "
 
 nix \
-    run github:nix-community/disko/latest -- --mode destroy,format,mount ./disko.nix
+    run github:nix-community/disko/latest -- --mode destroy,format,mount ./disko.nix --yes-wipe-all-disks
 
 echo "Copiando store e var para disko" $DISK_DEVICE
 

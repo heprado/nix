@@ -45,7 +45,7 @@ FLAKE="./#dev-machine"
 
 DISK_DEVICE=/dev/sda
 
-mount -t tmpfs -o size=8G tmpfs /tmp 
+sudo mount -o remount,size=8G /nix/store
 
 sudo nix \
     --extra-experimental-features 'flakes nix-command' \

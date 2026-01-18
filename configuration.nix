@@ -5,35 +5,45 @@
     ./disko.nix  
   ];
 
-  zramSwap.enable = true;
-  zramSwap.memoryPercent = 100;
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+  };
+  
+  boot = {
+    initrd = {
+      systemd.enable = true;
+    };
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    supportedFilesystems = ["ext4"];
+    availableKernelModules = [ "dm_mod" "xfs" "ext4" ];
+  };
 
-  # Bootloader UEFI
-  boot.initrd.systemd.enable = true;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.availableKernelModules = [ "dm_mod" "xfs" "ext4" ]; 
+  services = {
+    lvm.enable = true;
+    xserver.enable = false;
+  };
 
-  # LVM
-  services.lvm.enable = true;
-  boot.supportedFilesystems = [ "ext4" ];
+  programs = {
+    hyprland.enable = true;
+  };
 
-  # Desativar X11 (Hyprland é Wayland-only)
-  services.xserver.enable = false;
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    enableRedistributableFirmware = true;
+  };
 
-  # Hyprland
-  programs.hyprland.enable = true;
 
-  # Drivers Intel (Skylake)
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
-
-  # Firmware adicional
-  hardware.enableRedistributableFirmware = true;
-
-  # Rede
-  networking.networkmanager.enable = true;
-  networking.hostName = "dev-machine";
+  networking = {
+    networkmanager.enable = true;
+    hostName = "dev-machine";
+  };
 
   # Localização
   time.timeZone = "America/Sao_Paulo";
@@ -46,23 +56,26 @@
     isNormalUser = true;
     description = "User";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox alacritty  
-    ];
+    # packages = with pkgs; [
+    #   firefox alacritty  
+    # ];
     # initialPassword = "changeme";  # descomente se quiser senha fixa
   };
 
   # Pacotes globais
   environment.systemPackages = with pkgs; [
-    vim git curl wget htop xdg-utils lvm2
+    vim git curl wget htop lvm2
   ];
 
-  # Segurança e manutenção
-  nix.gc.automatic = true;
-
-  nix.gc.options = "--delete-older-than 7d";
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d"
+    };
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+    };
+  };
 
   system.stateVersion = "25.11";
 }

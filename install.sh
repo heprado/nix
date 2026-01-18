@@ -50,7 +50,6 @@ experimental-features = nix command flakes build-use-substitutes = true
 "
 
 sudo nix \
-    --extra-experimental-features 'flakes nix-command' \
     run github:nix-community/disko#disko-install -- \
     --flake "$FLAKE" \
     --write-efi-boot-entries \

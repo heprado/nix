@@ -55,14 +55,11 @@
 
   # Usuário
   # rofi waybar swaybg wl-clipboard grim slurp pavucontrol
-  users.users.heprado = {
+  users.users.developer = {
     isNormalUser = true;
-    description = "User";
+    description = "Developer";
     extraGroups = [ "networkmanager" "wheel" ];
-    # packages = with pkgs; [
-    #   firefox alacritty  
-    # ];
-    # initialPassword = "changeme";  # descomente se quiser senha fixa
+    initialPassword = "changeme";
   };
 
   # Pacotes globais

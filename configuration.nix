@@ -5,6 +5,14 @@
     ./disko.nix  
   ];
 
+
+  fileSystems."/nix" = {
+     device = "/dev/sda1/nix";
+     fsType = "ext4";
+     neededForBoot = true;
+     options = [ "noatime" ];
+  };
+
   zramSwap = {
     enable = true;
     memoryPercent = 100;

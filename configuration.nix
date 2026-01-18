@@ -6,12 +6,12 @@
   ];
 
 
-  fileSystems."/nix" = {
-     device = "/dev/sda2/vg0-lv--nix/nix";
-     fsType = "ext4";
-     neededForBoot = true;
-     options = [ "noatime" ];
-  };
+  # fileSystems."/nix" = {
+  #    device = "/dev/sda2/vg0-lv--nix/nix";
+  #    fsType = "ext4";
+  #    neededForBoot = true;
+  #    options = [ "noatime" ];
+  # };
 
   zramSwap = {
     enable = true;

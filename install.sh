@@ -56,10 +56,19 @@ build-use-substitutes = true
 nix \ 
     run github:nix-community/disko/latest -- --mode destroy,format,mount ./disko.nix
 
-nix \
-    run github:nix-community/disko#disko-install -- \
-    --flake "$FLAKE" \
-    --write-efi-boot-entries \
-    --disk main "$DISK_DEVICE"
+echo "Copiando store e var para disko" $DISK_DEVICE
+
+rsync --archive --hard-links --acls --one-file-system /nix/store/ /mnt/store
+rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
+
+nixos-install --flake ./#dev-machine
+
+nixos-enter --root /mnt -c 'passwd heprado'
+
+# nix \
+#     run github:nix-community/disko#disko-install -- \
+#     --flake "$FLAKE" \
+#     --write-efi-boot-entries \
+#     --disk main "$DISK_DEVICE"
 
 

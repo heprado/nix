@@ -76,6 +76,10 @@
     settings = {
       experimental-features = ["nix-command" "flakes"];
     };
+    extraOptions = ''
+      min-free = ${toString (100 * 1024 * 1024)}
+      max-free = ${toString (1024 * 1024 * 1024)}
+    ''
   };
 
   system.stateVersion = "25.11";

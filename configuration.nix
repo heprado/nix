@@ -13,13 +13,14 @@
   boot = {
     initrd = {
       systemd.enable = true;
+      availableKernelModules = [ "dm_mod" "xfs" "ext4" ];
     };
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = ["ext4"];
-    availableKernelModules = [ "dm_mod" "xfs" "ext4" ];
+
   };
 
   services = {

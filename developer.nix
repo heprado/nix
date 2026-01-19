@@ -10,7 +10,7 @@ let
 in
 {
   imports = [
-    ./modules/theme.nix
+    "github:heprado/nix/theme.nix"
   ];
 
   home.username = "developer";

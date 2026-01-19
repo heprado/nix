@@ -63,13 +63,11 @@ rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
 
 nixos-generate-config --root /mnt
 
-cp ./disko.nix /mnt/etc/nixos
+# cp ./disko.nix /mnt/etc/nixos
 
-cp ./flake.nix /mnt/etc/nixos
+# cp ./flake.nix /mnt/etc/nixos
 
-cp ./configuration.nix /mnt/etc/nixos
-
-
+# cp ./configuration.nix /mnt/etc/nixos
 
 nixos-install --flake ./#dev-machine --no-root-passwd
 

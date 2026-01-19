@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  dotfiles = "github:heprado/nix/hyprland.conf";
+  dotfiles = "${config.home.homeDirectory}/dotfiles";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
   configs = {
@@ -19,7 +19,7 @@ in
   programs.bash = {
     enable = true;
     shellAliases = {
-      nrs = "sudo nixos-rebuild switch --flake github:heprado/nix/hyprland.conf";
+      nrs = "sudo nixos-rebuild switch --flake github:heprado/nix#dev-machine";
     };
     profileExtra = ''
       if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then

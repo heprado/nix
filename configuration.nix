@@ -1,7 +1,11 @@
 { config, lib, pkgs, ... }:
 {
 
-  
+imports =
+  [
+      ./hardware-configuration.nix
+  ];
+    
   zramSwap = {
     enable = true;
     memoryPercent = 100;
@@ -23,6 +27,9 @@
   services = {
     lvm.enable = true;
     xserver.enable = false;
+    getty = {
+      autologinUser = "developer"
+    }
   };
 
   programs.hyprland = {

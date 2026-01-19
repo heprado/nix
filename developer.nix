@@ -1,21 +1,22 @@
 { config, pkgs, ... }:
 
-let
-  dotfiles = "${config.home.homeDirectory}/dotfiles";
-  create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+# let
+#   dotfiles = "${config.home.homeDirectory}/dotfiles";
+#   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
-  configs = {
-    hypr = "hypr";
-  };
-in
+#   configs = {
+#     hypr = "hypr";
+#   };
+# in
 {
   imports = [
     ./theme.nix
   ];
 
-
   wayland.windowManager.hyprland.systemd.enable = false;
-  
+
+  programs.kitty.enable = true; #Para a configuração padrão do Hyprland.
+
   home.username = "developer";
   home.homeDirectory = "/home/developer";
   home.stateVersion = "25.05";
@@ -31,11 +32,13 @@ in
     '';
   };
 
-  xdg.configFile = builtins.mapAttrs
-    (name: subpath: {
-      source = create_symlink "${dotfiles}/${subpath}";
-      recursive = true;
-    })
-    configs;
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # xdg.configFile = builtins.mapAttrs
+  #   (name: subpath: {
+  #     source = create_symlink "${dotfiles}/${subpath}";
+  #     recursive = true;
+  #   })
+  #   configs;
 
 }

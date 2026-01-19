@@ -29,7 +29,7 @@ imports =
     xserver.enable = false;
     getty = {
       autologinUser = "developer"
-    }
+    };
   };
 
   programs.hyprland = {

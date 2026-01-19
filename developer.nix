@@ -10,7 +10,7 @@ let
 in
 {
   imports = [
-    "./theme.nix"
+    ./theme.nix
   ];
 
   home.username = "developer";

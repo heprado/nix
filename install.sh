@@ -63,7 +63,7 @@ rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
 
 nixos-generate-config --root /mnt
 
-cp ./* /mnt/etc/nixos
+cp -f ./* /mnt/etc/nixos
 
 nixos-install --flake $FLAKE --no-root-passwd
 

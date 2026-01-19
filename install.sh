@@ -61,7 +61,7 @@ echo "Copiando store e var para disko" $DISK_DEVICE
 rsync --archive --hard-links --acls --one-file-system /nix/store/ /mnt/store
 rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
 
-nixos-install --flake ./#dev-machine
+nixos-install --flake ./#dev-machine --no-root-passwd
 
 nixos-enter --root /mnt -c 'passwd heprado'
 

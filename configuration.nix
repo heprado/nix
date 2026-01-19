@@ -5,7 +5,9 @@ imports =
   [
       ./hardware-configuration.nix
   ];
-    
+
+  wayland.windowManager.hyprland.systemd.enable = false;
+  
   zramSwap = {
     enable = true;
     memoryPercent = 100;
@@ -68,7 +70,7 @@ imports =
 
   # Pacotes globais
   environment.systemPackages = with pkgs; [
-    vim git curl wget htop lvm2
+    vim git curl wget lvm2
   ];
 
   nix = {

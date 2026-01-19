@@ -13,6 +13,8 @@ in
     ./theme.nix
   ];
 
+
+
   home.username = "developer";
   home.homeDirectory = "/home/developer";
   home.stateVersion = "25.05";
@@ -22,8 +24,8 @@ in
       nrs = "sudo nixos-rebuild switch --flake github:heprado/nix#dev-machine";
     };
     profileExtra = ''
-      if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-          exec uwsm start -S hyprland-uwsm.desktop
+      if uwsm check may-start; then
+        exec uwsm start hyprland-uwsm.desktop
       fi
     '';
   };

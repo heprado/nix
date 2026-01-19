@@ -44,7 +44,7 @@ if [[ ! -d /sys/firmware/efi ]]; then
 fi
 
 
-FLAKE="./#dev-machine"
+FLAKE="github:heprado/nix#dev-machine"
 
 DISK_DEVICE=/dev/sda
 
@@ -60,6 +60,16 @@ echo "Copiando store e var para disko" $DISK_DEVICE
 
 rsync --archive --hard-links --acls --one-file-system /nix/store/ /mnt/store
 rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
+
+nixos-generate-config --root /mnt
+
+cp ./disko.nix /mnt/etc/nixos
+
+cp ./flake.nix /mnt/etc/nixos
+
+cp ./configuration.nix /mnt/etc/nixos
+
+
 
 nixos-install --flake ./#dev-machine --no-root-passwd
 

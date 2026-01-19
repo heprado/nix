@@ -5,8 +5,6 @@ imports =
   [
       ./hardware-configuration.nix
   ];
-
-  wayland.windowManager.hyprland.systemd.enable = false;
   
   zramSwap = {
     enable = true;

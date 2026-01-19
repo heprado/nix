@@ -14,7 +14,8 @@ in
   ];
 
 
-
+  wayland.windowManager.hyprland.systemd.enable = false;
+  
   home.username = "developer";
   home.homeDirectory = "/home/developer";
   home.stateVersion = "25.05";

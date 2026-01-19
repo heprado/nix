@@ -15,6 +15,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { self, nixpkgs, home-manager, disko, ... }:
@@ -29,6 +34,7 @@
           ./configuration.nix
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
+          hyprland.nixosModules.default
           {
             home-manager = {
                useGlobalPkgs = true;

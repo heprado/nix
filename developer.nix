@@ -13,6 +13,11 @@
     ./theme.nix
   ];
 
+  programs.hyprland = {
+    enable = true;
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
+
   wayland.windowManager.hyprland.systemd.enable = false;
 
   programs.kitty.enable = true; #Para a configuração padrão do Hyprland.
@@ -32,7 +37,11 @@
     '';
   };
 
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    GDK_BACKEND = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+  };
 
   # xdg.configFile = builtins.mapAttrs
   #   (name: subpath: {

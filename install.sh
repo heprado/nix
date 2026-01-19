@@ -63,7 +63,7 @@ rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
 
 nixos-install --flake ./#dev-machine --no-root-passwd
 
-nixos-enter --root /mnt -c 'passwd heprado'
+# nixos-enter --root /mnt -c 'passwd heprado'
 
 # nix \
 #     run github:nix-community/disko#disko-install -- \

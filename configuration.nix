@@ -28,7 +28,7 @@ imports =
     lvm.enable = true;
     xserver.enable = false;
     getty = {
-      autologinUser = "developer"
+      autologinUser = "developer";
     };
   };
 

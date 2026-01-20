@@ -32,6 +32,14 @@ imports =
     };
   };
 
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    xwayland.enable = true;
+  };
+  
+  wayland.windowManager.hyprland.enable = true;
   
 
   hardware = {
@@ -64,7 +72,7 @@ imports =
 
   # Pacotes globais
   environment.systemPackages = with pkgs; [
-    vim git curl wget lvm2
+    vim git curl wget lvm2 uwsm
   ];
 
   nix = {

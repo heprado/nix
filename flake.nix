@@ -33,7 +33,7 @@
         inherit system;
 
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        
+
         modules = [
           ./configuration.nix
           {
@@ -41,7 +41,15 @@
               disko.nixosModules.disko
               home-manager.nixosModules.home-manager
               hyprland.nixosModules.default 
+            
             ];
+
+            wayland.windowManager.hyprland = {
+            enable = true;
+            # set the flake package
+            package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+            portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+          };
 
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

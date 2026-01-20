@@ -29,11 +29,8 @@
       default_user = "developer";
     in
     {
-      homeConfiguration."developer@dev-machine" = home-manager.lib.homeManagerConfiguration {
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
-
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
         modules = [
           ./configuration.nix
           {
@@ -41,7 +38,6 @@
               disko.nixosModules.disko
               home-manager.nixosModules.home-manager
               hyprland.nixosModules.default 
-            
             ];
 
             home-manager.useGlobalPkgs = true;

@@ -22,16 +22,20 @@
 
   };
 
-  outputs = { self, nixpkgs, hyprland, home-manager, disko, ... }@inputs:
+  outputs = { self, nixpkgs, hyprland, home-manager, disko, ... }:
     let 
       system = "x86_64-linux";
       hostname = "dev-machine";
+      default_user = "developer";
     in
     {
-      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+      homeConfiguration."developer@dev-machine" = home-manager.lib.homeManagerConfiguration {
         inherit system;
+
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        
         modules = [
-          ./configuration.nix  # optional: if you have a separate system config
+          ./configuration.nix
           {
             imports = [
               disko.nixosModules.disko
@@ -39,18 +43,11 @@
               hyprland.nixosModules.default 
             ];
 
-            # Enable Hyprland as display manager session
-            programs.hyprland.enable = true;
-
-            # Optional: enable wayland session support
-            services.xserver.enable = false;  # Hyprland is a Wayland compositor
-            
-            # Home Manager integration
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.developer = { ... }: {
               imports = [ ./developer.nix ];
-              home.stateVersion = "25.05";  # match your NixOS version
+              home.stateVersion = "25.05";
             };
           }
         ];

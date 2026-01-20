@@ -18,6 +18,13 @@
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
+  wayland.windowManager.hyprland.enable = true;
+  
+  # Enable Hyprland as display manager session
+  programs.hyprland.enable = true;
+
+  # Optional: enable wayland session support
+  services.xserver.enable = false; 
 
   programs.kitty.enable = true; #Para a configuração padrão do Hyprland.
 

@@ -13,10 +13,6 @@
   # ];
 
 
-
-  # Optional: enable wayland session support
-  services.xserver.enable = false; 
-
   programs.kitty.enable = true; #Para a configuração padrão do Hyprland.
 
   home.username = "developer";

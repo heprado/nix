@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 # let
 #   dotfiles = "${config.home.homeDirectory}/dotfiles";
 #   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
@@ -9,15 +8,16 @@
 #   };
 # in
 {
-  imports = [
-    ./theme.nix
-  ];
+  # imports = [
+  #   ./theme.nix
+  # ];
 
   programs.hyprland = {
     enable = true;
     withUWSM = true;
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
+
 
   programs.kitty.enable = true; #Para a configuração padrão do Hyprland.
 

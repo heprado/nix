@@ -38,9 +38,6 @@ imports =
     xwayland.enable = true;
   };
   
-  wayland.windowManager.hyprland.enable = true;
-  
-
   hardware = {
     graphics = {
       enable = true;

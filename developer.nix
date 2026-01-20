@@ -1,11 +1,6 @@
 { pkgs, ... }:
 let
-  dotfiles = "${config.home.homeDirectory}/dotfiles";
-  create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
-
-  configs = {
-    hypr = "hypr";
-  };
+  xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
 in
 {
   # imports = [

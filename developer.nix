@@ -1,12 +1,12 @@
 { pkgs, ... }:
-# let
-#   dotfiles = "${config.home.homeDirectory}/dotfiles";
-#   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+let
+  dotfiles = "${config.home.homeDirectory}/dotfiles";
+  create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
-#   configs = {
-#     hypr = "hypr";
-#   };
-# in
+  configs = {
+    hypr = "hypr";
+  };
+in
 {
   # imports = [
   #   ./theme.nix
@@ -36,11 +36,11 @@
     QT_QPA_PLATFORM = "wayland";
   };
 
-  # xdg.configFile = builtins.mapAttrs
-  #   (name: subpath: {
-  #     source = create_symlink "${dotfiles}/${subpath}";
-  #     recursive = true;
-  #   })
-  #   configs;
+  xdg.configFile = builtins.mapAttrs
+    (name: subpath: {
+      source = create_symlink "${dotfiles}/${subpath}";
+      recursive = true;
+    })
+    configs;
 
 }

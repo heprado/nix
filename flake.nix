@@ -1,5 +1,5 @@
 {
-  description = "My NixOS system with disko + LVM + /nix";
+  description = "My NixOS system with disko + LVM + Hyprland";
 
   inputs = {
     
@@ -31,16 +31,30 @@
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./configuration.nix
-          disko.nixosModules.disko
-          home-manager.nixosModules.home-manager
-          hyprland.nixosModules.default
+          ./configuration.nix  # optional: if you have a separate system config
           {
-            home-manager = {
-               useGlobalPkgs = true;
-               useUserPackages = true;
-               users.developer = import ./developer.nix;
-               backupFileExtension = "backup";
+            imports = [
+              disko.nixosModules.disko
+              home-manager.nixosModules.home-manager
+              hyprland.nixosModules.default 
+            ];
+
+            # Enable Hyprland as display manager session
+            programs.hyprland.enable = true;
+
+            # Optional: enable wayland session support
+            services.xserver.enable = false;  # Hyprland is a Wayland compositor
+            services.displayManager.sessionCommands = ''
+              export XDG_SESSION_TYPE=wayland
+              export XDG_CURRENT_DESKTOP=Hyprland
+            '';
+
+            # Home Manager integration
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.your-username = { ... }: {
+              imports = [ ./home.nix ];
+              home.stateVersion = "25.11";  # match your NixOS version
             };
           }
         ];

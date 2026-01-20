@@ -48,7 +48,7 @@
             # Home Manager integration
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.your-username = { ... }: {
+            home-manager.users.developer = { ... }: {
               imports = [ ./developer.nix ];
               home.stateVersion = "25.05";  # match your NixOS version
             };

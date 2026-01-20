@@ -54,7 +54,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.your-username = { ... }: {
               imports = [ ./home.nix ];
-              home.stateVersion = "25.11";  # match your NixOS version
+              home.stateVersion = "25.05";  # match your NixOS version
             };
           }
         ];

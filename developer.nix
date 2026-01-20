@@ -15,10 +15,9 @@
 
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
-
-  wayland.windowManager.hyprland.systemd.enable = false;
 
   programs.kitty.enable = true; #Para a configuração padrão do Hyprland.
 

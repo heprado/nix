@@ -44,11 +44,7 @@
 
             # Optional: enable wayland session support
             services.xserver.enable = false;  # Hyprland is a Wayland compositor
-            services.displayManager.sessionCommands = ''
-              export XDG_SESSION_TYPE=wayland
-              export XDG_CURRENT_DESKTOP=Hyprland
-            '';
-
+            
             # Home Manager integration
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

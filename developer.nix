@@ -18,11 +18,11 @@ in
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake github:heprado/nix#dev-machine";
     };
-    profileExtra = ''
-      if uwsm check may-start; then
-        exec uwsm start hyprland-uwsm.desktop
-      fi
-    '';
+    # profileExtra = ''
+    #   if uwsm check may-start; then
+    #     exec uwsm start hyprland-uwsm.desktop
+    #   fi
+    # '';
   };
 
   home.sessionVariables = {

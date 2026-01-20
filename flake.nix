@@ -49,7 +49,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.your-username = { ... }: {
-              imports = [ ./home.nix ];
+              imports = [ ./developer.nix ];
               home.stateVersion = "25.05";  # match your NixOS version
             };
           }

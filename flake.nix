@@ -22,7 +22,7 @@
 
   };
 
-  outputs = { self, nixpkgs, hyprland, home-manager, disko, ... }:
+  outputs = { self, nixpkgs, hyprland, home-manager, disko, ... }@inputs:
     let 
       system = "x86_64-linux";
       hostname = "dev-machine";

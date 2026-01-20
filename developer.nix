@@ -16,15 +16,10 @@
     enable = true;
     withUWSM = true;
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    xwayland.enable = true;
   };
   
   wayland.windowManager.hyprland.enable = true;
-  
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
-  };
 
   # Optional: enable wayland session support
   services.xserver.enable = false; 

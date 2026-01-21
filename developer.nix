@@ -25,7 +25,16 @@ in
     # '';
   };
 
+  programs.thunar.enable = true;
+  programs.waybar.enable = true;
+  programs.rofi.enable = true;
+
   home.sessionVariables = {
+    XDG_CURRENT_DESKTOP="Hyprland";
+    XDG_SESSION_TYPE="wayland";
+    XDG_SESSION_DESTOP="Hyprland";
+    WLR_NO_HARDWARE_CURSORS=1;
+    WLR_RENDERER_ALLOW_SOFTWARE=1;
     NIXOS_OZONE_WL = "1";
     GDK_BACKEND = "wayland";
     QT_QPA_PLATFORM = "wayland";

@@ -6,6 +6,8 @@ imports =
       ./hardware-configuration.nix
   ];
   
+  hardware.opengl.enable = true;
+  
   zramSwap = {
     enable = true;
     memoryPercent = 100;
@@ -62,7 +64,7 @@ imports =
   users.users.developer = {
     isNormalUser = true;
     description = "Developer";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     initialPassword = "changeme";
   };
 

@@ -10,6 +10,12 @@ in
 
   programs.kitty.enable = true; #Para a configuração padrão do Hyprland.
 
+  programs.thunar.enable = true;
+
+  programs.waybar.enable = true;
+  
+  programs.rofi.enable = true;
+
   home.username = "developer";
   home.homeDirectory = "/home/developer";
   home.stateVersion = "25.05";
@@ -25,9 +31,6 @@ in
     # '';
   };
 
-  programs.thunar.enable = true;
-  programs.waybar.enable = true;
-  programs.rofi.enable = true;
 
   home.sessionVariables = {
     XDG_CURRENT_DESKTOP="Hyprland";

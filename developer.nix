@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
 in
@@ -7,18 +7,22 @@ in
   #   ./theme.nix
   # ];
 
-
+  programs.home-manager.enable = true;
+  programs.git.enable = true;
   programs.kitty.enable = true; #Para a configuração padrão do Hyprland.
 
-  programs.thunar.enable = true;
-
-  programs.waybar.enable = true;
-  
-  programs.rofi.enable = true;
+  home.pkgs = [
+    pkgs.thunar
+    pkgs.waybar
+    pkgs.rofi
+  ];
 
   home.username = "developer";
+
   home.homeDirectory = "/home/developer";
+
   home.stateVersion = "25.05";
+
   programs.bash = {
     enable = true;
     shellAliases = {

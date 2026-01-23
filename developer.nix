@@ -11,7 +11,7 @@ in
   programs.git.enable = true;
   programs.kitty.enable = true; #Para a configuração padrão do Hyprland.
 
-  home.pkgs = [
+  home.packages = [
     pkgs.xfce.thunar
     pkgs.waybar
     pkgs.rofi

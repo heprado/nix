@@ -12,7 +12,7 @@ in
   programs.kitty.enable = true; #Para a configuração padrão do Hyprland.
 
   home.pkgs = [
-    pkgs.thunar
+    pkgs.xfce.thunar
     pkgs.waybar
     pkgs.rofi
   ];

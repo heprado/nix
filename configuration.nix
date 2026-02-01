@@ -26,6 +26,8 @@ imports =
 
   };
 
+
+
   services = {
     lvm.enable = true;
     xserver.enable = false;
@@ -36,10 +38,15 @@ imports =
 
   programs.hyprland = {
     enable = true;
-    withUWSM = true;
     xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
-  
+
+  programs.home-manager.enable = true;
+
+  programs.kitty.enable = true;
+
   hardware = {
     graphics = {
       enable = true;
@@ -70,8 +77,19 @@ imports =
 
   # Pacotes globais
   environment.systemPackages = with pkgs; [
-    vim git curl wget lvm2 uwsm
+    vim git curl wget lvm2 xfce.thunar waybar rofi
   ];
+
+  environment.variables = {
+    XDG_CURRENT_DESKTOP="Hyprland";
+    XDG_SESSION_TYPE="wayland";
+    XDG_SESSION_DESTOP="Hyprland";
+    WLR_NO_HARDWARE_CURSORS=1;
+    WLR_RENDERER_ALLOW_SOFTWARE=1;
+    NIXOS_OZONE_WL = "1";
+    GDK_BACKEND = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+  }
 
   nix = {
     gc = {

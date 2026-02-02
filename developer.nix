@@ -3,12 +3,10 @@ let
   xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
 in
 {
-  # imports = [
-  #   ./theme.nix
-  # ];
+ 
 
   programs.home-manager.enable = true;
-  
+
   home.username = "developer";
 
   home.homeDirectory = "/home/developer";
@@ -20,11 +18,6 @@ in
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake github:heprado/nix#dev-machine";
     };
-    # profileExtra = ''
-    #   if uwsm check may-start; then
-    #     exec uwsm start hyprland-uwsm.desktop
-    #   fi
-    # '';
   };
 
   # xdg.configFile = builtins.mapAttrs

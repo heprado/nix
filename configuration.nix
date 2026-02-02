@@ -34,16 +34,13 @@ imports =
       enable = true;
       displayManager.sddm.enable = true;
     };
-    getty = {
-      autologinUser = "developer";
-    };
   };
 
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    package = ${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = ${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   hardware = {

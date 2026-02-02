@@ -46,10 +46,6 @@ imports =
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
-
-
-  programs.kitty.enable = true;
-
   hardware = {
     graphics = {
       enable = true;
@@ -80,7 +76,7 @@ imports =
 
   # Pacotes globais
   environment.systemPackages = with pkgs; [
-    vim git curl wget lvm2 xfce.thunar waybar rofi
+    vim git curl wget lvm2 xfce.thunar waybar rofi foot
   ];
 
   environment.variables = {

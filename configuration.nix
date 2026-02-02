@@ -6,6 +6,7 @@ imports =
       ./hardware-configuration.nix
   ];
   
+  config.allowUnfree = true;
   
   zramSwap = {
     enable = true;

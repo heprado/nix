@@ -6,7 +6,6 @@ imports =
       ./hardware-configuration.nix
   ];
   
-  hardware.opengl.enable = true;
   
   zramSwap = {
     enable = true;
@@ -30,10 +29,8 @@ imports =
 
   services = {
     lvm.enable = true;
-    xserver = {
-      enable = true;
-      displayManager.sddm.enable = true;
-    };
+    xserver.enable = true;
+    displayManager.sddm.enable = true;
   };
 
   programs.hyprland = {
@@ -73,7 +70,7 @@ imports =
 
   # Pacotes globais
   environment.systemPackages = with pkgs; [
-    vim git curl wget lvm2 xfce.thunar waybar rofi foot
+    vim git curl wget lvm2 xfce.thunar waybar rofi foot ibm-plex
   ];
 
   environment.variables = {

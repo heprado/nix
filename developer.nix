@@ -13,6 +13,11 @@ in
 
   home.stateVersion = "25.05";
 
+  programs.foot.enable = true;
+  programs.waybar.enable = true;
+  programs.xfce.thunar.enable = true;
+  programs.rofi.enable = true;
+  
   programs.bash = {
     enable = true;
     shellAliases = {

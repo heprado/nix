@@ -56,12 +56,15 @@ build-use-substitutes = true
 nix \
     run github:nix-community/disko/latest -- --mode destroy,format,mount ./disko.nix --yes-wipe-all-disks
 
+
 nix-collect-garbage
 
 echo "Copiando store e var para disko" $DISK_DEVICE
 
 rsync --archive --hard-links --acls --one-file-system /nix/store/ /mnt/store
 rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
+
+nix-collect-garbage
 
 nixos-generate-config --root /mnt
 

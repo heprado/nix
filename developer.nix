@@ -14,19 +14,12 @@
   programs.firefox = {
     enable = true;
   };
-  
+
   programs.bash = {
     enable = true;
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake github:heprado/nix#dev-machine";
     };
   };
-
-  # xdg.configFile = builtins.mapAttrs
-  #   (name: subpath: {
-  #     source = create_symlink "${dotfiles}/${subpath}";
-  #     recursive = true;
-  #   })
-  #   configs;
 
 }

@@ -46,7 +46,7 @@ imports =
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
-  programs.home-manager.enable = true;
+
 
   programs.kitty.enable = true;
 

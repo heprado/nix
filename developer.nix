@@ -7,7 +7,8 @@ in
   #   ./theme.nix
   # ];
 
-
+  programs.home-manager.enable = true;
+  
   home.username = "developer";
 
   home.homeDirectory = "/home/developer";

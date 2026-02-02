@@ -39,8 +39,8 @@ imports =
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    package = pkgs.stdenv.hostPlatform.system.hyprland;
-    portalPackage = pkgs.stdenv.hostPlatform.system.xdg-desktop-portal-hyprland;
+    # package = pkgs.stdenv.hostPlatform.system.hyprland;
+    # portalPackage = pkgs.stdenv.hostPlatform.system.xdg-desktop-portal-hyprland;
   };
 
   hardware = {

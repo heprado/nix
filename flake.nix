@@ -27,7 +27,6 @@
     {
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
-        config.allowUnfree = true;
         modules = [
           ./configuration.nix
           {

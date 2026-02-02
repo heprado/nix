@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
  
+
+  config.allowUnfree = true;
   xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
 
   home.username = "developer";
@@ -24,7 +26,7 @@
   programs.vscode = {
     enable = true;
   };
-  
+
   programs.fastfetch = {
     enable = true;
   };

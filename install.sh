@@ -1,39 +1,3 @@
-# #!/usr/bin/env bash
-
-# set -euo pipefail
-
-# MACHINE="dev-machine";
-
-
-
-# export NIX_CONFIG="experimental-features = nix-command flakes"
-
-
-
-# echo "Montando tmpfs em /tmp para builds temporários..."
-
-# mount -t tmpfs -o size=8G tmpfs /tmp  
-
-# echo "Particionando realmente"
-
-# nix shell nixpkgs#disko -c disko --mode disko "./machines/$MACHINE/disko.nix"
-
-# nixos-generate-config --no-filesystems --root /mnt 
-
-# cp ./machines/$MACHINE/* /mnt/etc/nixos/
-
-# cp ./flake.nix /mnt/etc/nixos/
-
-# echo "Aplicando configs"
-
-# echo "Instalando"
-
-
-# nixos-install --flake "/mnt/etc/nixos#dev-machine" --no-root-passwd
-
-
-#FLAKE="github:heprado/nix?dir=machines/dev-machine#dev-machine"
-
 if [[ ! -d /sys/firmware/efi ]]; then
 
 

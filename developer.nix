@@ -3,15 +3,14 @@
  
   xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
 
-  programs.home-manager.enable = true;
-
   home.username = "developer";
 
   home.homeDirectory = "/home/developer";
 
   home.stateVersion = "25.05";
 
-  programs.firefox = {
+
+  programs.home-manager = {
     enable = true;
   };
 
@@ -20,6 +19,14 @@
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake github:heprado/nix#dev-machine";
     };
+  };
+  
+  programs.fastfetch = {
+    enable = true;
+  };
+  
+  programs.firefox = {
+    enable = true;
   };
 
 }

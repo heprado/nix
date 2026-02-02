@@ -2,7 +2,7 @@
 {
  
   xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
-  
+
   programs.home-manager.enable = true;
 
   home.username = "developer";
@@ -11,7 +11,10 @@
 
   home.stateVersion = "25.05";
 
-
+  programs.firefox = {
+    enable = true;
+  };
+  
   programs.bash = {
     enable = true;
     shellAliases = {

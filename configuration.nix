@@ -30,7 +30,10 @@ imports =
 
   services = {
     lvm.enable = true;
-    xserver.enable = false;
+    xserver = {
+      enable = true;
+      displayManager.sddm.enable = true;
+    };
     getty = {
       autologinUser = "developer";
     };

@@ -20,6 +20,10 @@
       nrs = "sudo nixos-rebuild switch --flake github:heprado/nix#dev-machine";
     };
   };
+
+  programs.vscode = {
+    enable = true;
+  };
   
   programs.fastfetch = {
     enable = true;

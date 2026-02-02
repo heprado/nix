@@ -2,7 +2,6 @@
 {
  
 
-  config.allowUnfree = true;
   xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
 
   home.username = "developer";

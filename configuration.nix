@@ -10,6 +10,8 @@ imports =
     enable = true;
     memoryPercent = 100;
   };
+
+  nixpkgs.config.allowUnfree = true;
   
   boot = {
     initrd = {

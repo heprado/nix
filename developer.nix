@@ -18,7 +18,7 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      nrs = "sudo nixos-rebuild switch --flake github:heprado/nix#dev-machine";
+      nrs = "sudo nixos-rebuild switch";
     };
   };
 

@@ -71,7 +71,11 @@ imports =
 
   # Pacotes globais
   environment.systemPackages = with pkgs; [
-    vim git curl wget lvm2 xfce.thunar waybar rofi foot ibm-plex
+    vim git curl wget lvm2 xfce.thunar waybar rofi foot gtk4 
+  ];
+  
+  fonts.packages = with pkgs; [ 
+    nerd-fonts.blex-mono 
   ];
 
   environment.variables = {

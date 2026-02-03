@@ -74,18 +74,21 @@ imports =
     vim git curl wget lvm2 xfce.thunar waybar rofi foot gtk4 
   ];
 
-  fonts.packages = with pkgs; [ 
-    nerd-fonts.blex-mono 
-  ];
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [ 
+      nerd-fonts.blex-mono 
+    ];
 
-  fontconfig = {
-    defaultFonts = {
-      serif = [  "BlexMono" ];
-      sansSerif = [ "BlexMono" ];
-      monospace = [ "BlexMono" ];
+    fontconfig = {
+      defaultFonts = {
+        serif = [  "BlexMono" ];
+        sansSerif = [ "BlexMono" ];
+        monospace = [ "BlexMono" ];
+      };
     };
   };
-
+  
   environment.variables = {
     XDG_CURRENT_DESKTOP="Hyprland";
     XDG_SESSION_TYPE="wayland";

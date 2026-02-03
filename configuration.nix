@@ -82,13 +82,13 @@ imports =
 
     fontconfig = {
       defaultFonts = {
-        serif = [  "BlexMono" ];
-        sansSerif = [ "BlexMono" ];
-        monospace = [ "BlexMono" ];
+        serif = [  "BlexMono Nerd Font" ];
+        sansSerif = [ "BlexMono Nerd Font" ];
+        monospace = [ "BlexMono Nerd Font" ];
       };
     };
   };
-  
+
   environment.variables = {
     XDG_CURRENT_DESKTOP="Hyprland";
     XDG_SESSION_TYPE="wayland";

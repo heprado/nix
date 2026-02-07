@@ -25,16 +25,16 @@ nix-collect-garbage
 
 echo "Copiando store e var para disko" $DISK_DEVICE
 
-rsync --archive --hard-links --acls --one-file-system /nix/store/ /mnt/store
-rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
+#rsync --archive --hard-links --acls --one-file-system /nix/store/ /mnt/store
+#rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
+mount --bind /nix/store /mnt/store
+mount --bind /nix/var /mnt/var
 
 nix-collect-garbage
 
 nixos-generate-config --root /mnt
 
 cp -f -r ./* /mnt/etc/nixos
-
-sleep 60
 
 nixos-install --flake $FLAKE --no-root-passwd
 

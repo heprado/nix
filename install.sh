@@ -34,6 +34,8 @@ nixos-generate-config --root /mnt
 
 cp -f -r ./* /mnt/etc/nixos
 
+sleep 60
+
 nixos-install --flake $FLAKE --no-root-passwd
 
 # nixos-enter --root /mnt -c 'passwd heprado'

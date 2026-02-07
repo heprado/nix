@@ -21,16 +21,19 @@ nix \
     run github:nix-community/disko/latest -- --mode destroy,format,mount ./disko.nix --yes-wipe-all-disks
 
 
-nix-collect-garbage
+#nix-collect-garbage
 
 echo "Copiando store e var para disko" $DISK_DEVICE
 
 #rsync --archive --hard-links --acls --one-file-system /nix/store/ /mnt/store
 #rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
+mkdir /mnt/var
+mkdir /mnt/store
+
 mount --bind /nix/store /mnt/store
 mount --bind /nix/var /mnt/var
 
-nix-collect-garbage
+#nix-collect-garbage
 
 nixos-generate-config --root /mnt
 

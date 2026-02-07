@@ -4,6 +4,8 @@
 
   xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
 
+  xdg.configFile."foot/foot.ini".source  = ./dotfiles/foot/foot.ini;
+
   home.username = "developer";
 
   home.homeDirectory = "/home/developer";

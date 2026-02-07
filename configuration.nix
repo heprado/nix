@@ -80,13 +80,13 @@ imports =
       nerd-fonts.blex-mono 
     ];
 
-    fontconfig = {
-      defaultFonts = {
-        serif = [  "BlexMono Nerd Font" ];
-        sansSerif = [ "BlexMono Nerd Font" ];
-        monospace = [ "BlexMono Nerd Font" ];
-      };
-    };
+    # fontconfig = {
+    #   defaultFonts = {
+    #     serif = [  "BlexMono Nerd Font" ];
+    #     sansSerif = [ "BlexMono Nerd Font" ];
+    #     monospace = [ "BlexMono Nerd Font" ];
+    #   };
+    # };
   };
 
   environment.variables = {

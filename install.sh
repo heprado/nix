@@ -29,8 +29,6 @@ rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
 
 mount /dev/mapper/vg0-lv--nix /nix
 
-nix-collect-garbage
-
 cp -f -r ./* /mnt/etc/nixos
 
 nixos-generate-config --root /mnt

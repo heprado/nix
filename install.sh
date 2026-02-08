@@ -27,8 +27,6 @@ echo "Copiando store e var para disko" $DISK_DEVICE
 rsync --archive --hard-links --acls --one-file-system /nix/store/ /mnt/store
 rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
 
-mount /dev/mapper/vg0-lv--nix /nix
-
 cp -f -r ./* /mnt/etc/nixos
 
 nixos-generate-config --root /mnt

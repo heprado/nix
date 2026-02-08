@@ -6,6 +6,13 @@ imports =
       ./hardware-configuration.nix
   ];
 
+  fileSystems."/nix" = {
+     device = "/dev/sda2/vg0-lv--nix/nix";
+     fsType = "ext4";
+     neededForBoot = true;
+     options = [ "noatime" ];
+  };
+
   zramSwap = {
     enable = true;
     memoryPercent = 100;

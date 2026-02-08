@@ -20,20 +20,16 @@ build-use-substitutes = true
 nix \
     run github:nix-community/disko/latest -- --mode destroy,format,mount ./disko.nix --yes-wipe-all-disks
 
-
-#nix-collect-garbage
+nix-collect-garbage
 
 echo "Copiando store e var para disko" $DISK_DEVICE
 
-#rsync --archive --hard-links --acls --one-file-system /nix/store/ /mnt/store
-#rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
-mkdir /mnt/var
-mkdir /mnt/store
+rsync --archive --hard-links --acls --one-file-system /nix/store/ /mnt/store
+rsync --archive --hard-links --acls --one-file-system /nix/var/ /mnt/var
 
-mount --bind /nix/store /mnt/store
-mount --bind /nix/var /mnt/var
+mount 
 
-#nix-collect-garbage
+nix-collect-garbage
 
 nixos-generate-config --root /mnt
 
@@ -41,12 +37,5 @@ cp -f -r ./* /mnt/etc/nixos
 
 nixos-install --flake $FLAKE --no-root-passwd
 
-# nixos-enter --root /mnt -c 'passwd heprado'
-
-# nix \
-#     run github:nix-community/disko#disko-install -- \
-#     --flake "$FLAKE" \
-#     --write-efi-boot-entries \
-#     --disk main "$DISK_DEVICE"
 
 

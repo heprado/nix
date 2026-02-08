@@ -7,7 +7,7 @@ imports =
   ];
 
   fileSystems."/nix" = {
-     device = "/dev/sda2/vg0-lv--nix/nix";
+     device = "/dev/mapper/vg0-lv--nix";
      fsType = "ext4";
      neededForBoot = true;
      options = [ "noatime" ];

@@ -31,9 +31,9 @@ mount /dev/mapper/vg0-lv--nix /nix
 
 nix-collect-garbage
 
-nixos-generate-config --root /mnt
-
 cp -f -r ./* /mnt/etc/nixos
+
+nixos-generate-config --root /mnt
 
 nixos-install --flake $FLAKE --no-root-passwd
 

@@ -12,7 +12,7 @@
 
   home.stateVersion = "25.05";
 
-  home.packages = [
+  home.packages = with pkgs;[
       font-awesome
       nerd-fonts.blex-mono 
       nerd-fonts.proggy-clean-tt

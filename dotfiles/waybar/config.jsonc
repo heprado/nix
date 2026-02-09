@@ -25,7 +25,7 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "group/group-power": {
-        "orientation": "inherit",
+        "orientation": "vertical",
         "drawer": {
             "transition-duration": 500,
             "children-class": "not-power",

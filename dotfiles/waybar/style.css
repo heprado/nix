@@ -1,6 +1,6 @@
 * {
-    font-family: FontAwesome, ProggyClean Nerd Font, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-family: FontAwesome, ProggyClean Nerd Font, serif;
+    font-size: 16px;
 }
 
 window#waybar {

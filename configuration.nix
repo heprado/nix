@@ -71,23 +71,9 @@ imports =
 
   # Pacotes globais
   environment.systemPackages = with pkgs; [
-    vim git curl wget lvm2 xfce.thunar waybar rofi foot gtk4 
+    vim git curl wget lvm2 xfce.thunar waybar rofi foot gtk4 pavucontrol
   ];
 
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [ 
-      nerd-fonts.blex-mono 
-    ];
-
-    fontconfig = {
-      defaultFonts = {
-        serif = [  "BlexMono Nerd Font" ];
-        sansSerif = [ "BlexMono Nerd Font" ];
-        monospace = [ "BlexMono Nerd Font" ];
-      };
-    };
-  };
 
   environment.variables = {
     XDG_CURRENT_DESKTOP="Hyprland";

@@ -10,6 +10,25 @@
 
   home.stateVersion = "25.05";
 
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [ 
+      font-awesome
+      nerd-fonts.blex-mono 
+      nerd-fonts.proggy-clean-tt
+    ];
+
+    fontconfig = {
+      enable = true;
+      # defaultFonts = {
+      #   serif = [  "BlexMono Nerd Font" ];
+      #   sansSerif = [ "BlexMono Nerd Font" ];
+      #   monospace = [ "BlexMono Nerd Font" ];
+      # };
+    };
+  };
+
+
 
   programs.home-manager = {
     enable = true;

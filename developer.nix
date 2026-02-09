@@ -39,6 +39,8 @@
     enable = true;
   };
 
+  programs.swaylock.enable = true;
+  
   programs.bash = {
     enable = true;
     shellAliases = {

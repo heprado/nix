@@ -12,13 +12,12 @@
 
   home.stateVersion = "25.05";
 
-  fonts = {
-    packages = with pkgs; [ 
+  home.packages = [
       font-awesome
       nerd-fonts.blex-mono 
       nerd-fonts.proggy-clean-tt
-    ];
-
+  ];
+  fonts = {
     fontconfig = {
       enable = true;
       # defaultFonts = {

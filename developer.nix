@@ -6,7 +6,7 @@
 
   xdg.configFile."foot/foot.ini".source  = ./dotfiles/foot/foot.ini;
   
-  xdg.configFile."waybar".source = ./waybar
+  xdg.configFile."waybar".source = ./waybar;
 
   home.username = "developer";
 

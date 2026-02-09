@@ -13,7 +13,6 @@
   home.stateVersion = "25.05";
 
   fonts = {
-    enableDefaultPackages = true;
     packages = with pkgs; [ 
       font-awesome
       nerd-fonts.blex-mono 

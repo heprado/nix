@@ -5,6 +5,8 @@
   xdg.configFile."hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
 
   xdg.configFile."foot/foot.ini".source  = ./dotfiles/foot/foot.ini;
+  
+  xdg.configFile."waybar".source = ./waybar
 
   home.username = "developer";
 

@@ -78,7 +78,7 @@ imports =
 
   # Pacotes globais
   environment.systemPackages = with pkgs; [
-    vim git curl wget lvm2 xfce.thunar waybar rofi foot gtk4 pavucontrol
+    vim git curl wget lvm2 xfce.thunar waybar rofi foot gtk4 pavucontrol hyprlock hyprpaper
   ];
 
 

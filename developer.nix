@@ -38,8 +38,6 @@
   programs.home-manager = {
     enable = true;
   };
-
-  programs.swaylock.enable = true;
   
   programs.bash = {
     enable = true;

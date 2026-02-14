@@ -73,7 +73,7 @@ button:hover {
 
 #clock,
 #power{
-    padding: 10px 10px;
+    padding: 0 10px;
     color: #ffffff;
 }
 
@@ -96,6 +96,9 @@ button:hover {
     background-color: #64727D;
 }
 
+#power {
+    padding-right:10px;
+}
 
 @keyframes blink {
     to {

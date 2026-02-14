@@ -41,38 +41,9 @@
                     "on-scroll-down": "shift_down"
                     }
     },
-    "group/power": {
-        "orientation": "vertical",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "not-power",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "custom/power", // First element is the "group leader" and won't ever be hidden
-            "custom/quit",
-            "custom/lock",
-            "custom/reboot"
-        ]
-    },
-    "custom/quit": {
-        "format": "󰗼",
-        "tooltip": false,
-        "on-click": "hyprctl dispatch exit"
-    },
-    "custom/lock": {
-        "format": "󰍁",
-        "tooltip": false,
-        "on-click": "swaylock"
-    },
-    "custom/reboot": {
-        "format": "󰜉",
-        "tooltip": false,
-        "on-click": "reboot"
-    },
     "custom/power": {
     "format": "",
     "tooltip": false,
-    "on-click": "shutdown now"
+    "on-click": "hyprlock"
     }
 }

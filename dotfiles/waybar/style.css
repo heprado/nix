@@ -97,7 +97,7 @@ button:hover {
 }
 
 #power {
-    padding-right:10px;
+    margin-right:10px;
 }
 
 @keyframes blink {

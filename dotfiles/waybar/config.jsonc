@@ -12,7 +12,7 @@
     ],
     "modules-right": [
         "clock",
-        "custom/group-power"
+        "custom/power"
     ],
     "hyprland/workspaces": {
         "persistent-workspaces": {
@@ -41,7 +41,7 @@
                     "on-scroll-down": "shift_down"
                     }
     },
-    "group/group-power": {
+    "group/power": {
         "orientation": "vertical",
         "drawer": {
             "transition-duration": 500,

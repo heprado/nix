@@ -35,7 +35,6 @@
           ./configuration.nix
           {
             imports = [
-              # disko.nixosModules.disko
               home-manager.nixosModules.home-manager
               niri.homeModules.niri
               noctalia.homeModules.default
@@ -45,7 +44,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.developer = { ... }: {
               imports = [ ./developer.nix ];
-              home.stateVersion = "25.05";
             };
           }
         ];

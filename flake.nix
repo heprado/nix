@@ -44,6 +44,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.developer = { ... }: {
               imports = [ ./developer.nix ];
+              home.stateVersion = "24.05";
             };
           }
         ];

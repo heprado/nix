@@ -33,18 +33,15 @@
         inherit system;
         modules = [
           ./configuration.nix
+          home-manager.nixosModules.home-manager
+          niri.homeModules.niri
+          noctalia.homeModules.default
           {
-            imports = [
-              home-manager.nixosModules.home-manager
-              niri.homeModules.niri
-              noctalia.homeModules.default
-            ];
-
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.developer = { ... }: {
               imports = [ ./developer.nix ];
-              home.stateVersion = "24.05";
+              home.stateVersion = "24.05"; 
             };
           }
         ];

@@ -1,8 +1,8 @@
-{ config, pkgs,inputs, ... }:
+{ config, pkgs, ... }:
 {
-  imports = [
-      inputs.noctalia.homeModules.default
-  ];
+  # imports = [
+  #     inputs.noctalia.homeModules.default
+  # ];
 
 
   home.username = "developer";

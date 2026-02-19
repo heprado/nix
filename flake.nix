@@ -16,6 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri.url = "github:sodiboo/niri-flake";
+
   };
 
   outputs = { self, nixpkgs, home-manager, disko, ... }:
@@ -33,6 +35,7 @@
             imports = [
               # disko.nixosModules.disko
               home-manager.nixosModules.home-manager
+              niri.homeModules.niri
             ];
 
             home-manager.useGlobalPkgs = true;

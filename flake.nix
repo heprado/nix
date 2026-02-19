@@ -9,17 +9,20 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri.url = "github:sodiboo/niri-flake";
+    niri = {
+      url = "github:sodiboo/niri-flake"
+    }
+
 
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, ... }:
+  outputs = { self, nixpkgs, home-manager, niri, noctalia ... }:
     let 
       system = "x86_64-linux";
       hostname = "dev-machine";
@@ -35,6 +38,7 @@
               # disko.nixosModules.disko
               home-manager.nixosModules.home-manager
               niri.homeModules.niri
+              noctalia.homeModules.default
             ];
 
             home-manager.useGlobalPkgs = true;

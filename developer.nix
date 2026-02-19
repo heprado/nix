@@ -9,6 +9,8 @@
 
   home.homeDirectory = "/home/developer";
 
+  home.stateVersion = "25.05";
+
   home.packages = with pkgs;[
       font-awesome
       nerd-fonts.blex-mono 

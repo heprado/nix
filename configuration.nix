@@ -43,7 +43,18 @@ imports =
     upower.enable = true;
   };
 
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    settings = {
+      spawn-at-startup = [
+          {
+            command = [
+              "noctalia-shell"
+            ];
+          }
+        ];
+      };
+  };
 
   hardware = {
     graphics = {

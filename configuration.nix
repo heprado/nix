@@ -44,16 +44,22 @@ imports =
   };
 
   programs.niri = {
-    enable = true;
+    enable = true; 
+
     settings = {
+
       spawn-at-startup = [
-          {
-            command = [
-              "noctalia-shell"
-            ];
-          }
-        ];
+        "noctalia-shell"
+      ];
+      
+      input = {
+        keyboard = {
+          xkb = {
+            layout = "us";
+          };
+        };
       };
+    };
   };
 
   hardware = {

@@ -22,7 +22,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, niri, noctalia ... }:
+  outputs = { self, nixpkgs, home-manager, niri, noctalia, ... }:
     let 
       system = "x86_64-linux";
       hostname = "dev-machine";

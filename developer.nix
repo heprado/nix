@@ -18,9 +18,7 @@
   ];
 
   programs.niri = {
-    package = niri;
     settings = {
-        # ...
       spawn-at-startup = [
           {
             command = [

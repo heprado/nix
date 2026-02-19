@@ -39,19 +39,19 @@ imports =
     lvm.enable = true;
     xserver.enable = true;
     displayManager.sddm.enable = true;
+    tuned.enable = true;
+    upower.enable = true;
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    # package = pkgs.stdenv.hostPlatform.system.hyprland;
-    # portalPackage = pkgs.stdenv.hostPlatform.system.xdg-desktop-portal-hyprland;
-  };
+  programs.niri.enable = true;
 
   hardware = {
     graphics = {
       enable = true;
       enable32Bit = true;
+    };
+    bluetooth = {
+      enable=true
     };
     enableRedistributableFirmware = true;
   };
@@ -78,7 +78,7 @@ imports =
 
   # Pacotes globais
   environment.systemPackages = with pkgs; [
-    vim git curl wget lvm2 xfce.thunar waybar rofi foot gtk4 pavucontrol hyprlock hyprpaper
+    vim git curl wget lvm2 
   ];
 
 

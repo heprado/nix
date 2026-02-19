@@ -16,7 +16,7 @@
     };
 
     niri = {
-      url = "github:sodiboo/niri-flake"
+      url = "github:sodiboo/niri-flake";
     }
 
 

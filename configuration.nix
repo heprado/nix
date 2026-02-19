@@ -51,7 +51,7 @@ imports =
       enable32Bit = true;
     };
     bluetooth = {
-      enable=true
+      enable=true;
     };
     enableRedistributableFirmware = true;
   };

@@ -17,7 +17,24 @@
       nerd-fonts.proggy-clean-tt
   ];
 
+  programs.niri = {
+    enable = true;
 
+    settings = {
+      spawn-at-startup = [
+        "noctalia-shell"
+      ];
+
+      # Add more Niri settings as needed
+      input = {
+        keyboard = {
+          xkb = {
+            layout = "us";
+          };
+        };
+      };
+    };
+  };
 
 
   programs.noctalia-shell = {

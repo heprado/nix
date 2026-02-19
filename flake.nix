@@ -1,14 +1,10 @@
 {
-  description = "My NixOS system with disko + LVM + Hyprland";
+  description = "My NixOS system";
 
   inputs = {
     
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # disko = {
-    #   url = "github:nix-community/disko/latest";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";

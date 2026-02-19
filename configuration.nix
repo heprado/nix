@@ -43,25 +43,6 @@ imports =
     upower.enable = true;
   };
 
-  programs.niri = {
-    enable = true; 
-
-    settings = {
-
-      spawn-at-startup = [
-        "noctalia-shell"
-      ];
-      
-      input = {
-        keyboard = {
-          xkb = {
-            layout = "us";
-          };
-        };
-      };
-    };
-  };
-
   hardware = {
     graphics = {
       enable = true;
